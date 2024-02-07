@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Card from "./components/Card";
+import { AdminFlagContext } from "./components/providers/AdminFlagProvider";
 
 export const App = () => {
-  // 관리자 플래스
-  const [isAdmin, setIsAdmin] = useState(false);
-
+  // context 안의 isAdmin과 업데이트 함수를 얻는다
+  const { isAdmin, setIsAdmin } = useContext(AdminFlagContext);
   // [전환] 클릭 시
   const onClickSwitch = () => setIsAdmin(!isAdmin);
 

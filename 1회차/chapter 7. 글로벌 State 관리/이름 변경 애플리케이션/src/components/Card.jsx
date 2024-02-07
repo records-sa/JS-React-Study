@@ -13,9 +13,6 @@ const style = {
 };
 
 function Card() {
-  // props로 관리자 플래그를 받는다
-  const { isAdmin } = props;
-
   return (
     <div style={style}>
       <p>야마다 타로</p>
