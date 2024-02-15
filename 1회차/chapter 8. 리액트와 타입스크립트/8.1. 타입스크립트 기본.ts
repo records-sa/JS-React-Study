@@ -1,4 +1,5 @@
 // string(문자열) 타입
+import { useState } from "react";
 // :string 으로 지정
 let str: string = "A";
 str = "10"; // ok
@@ -96,3 +97,23 @@ const obj: TypeC = {
   num: 10,
   bool: false,
 };
+
+// union(병합, 공동체) 타입
+// 타입 | 타입으로 지정
+let val1: string | number = "";
+val1 = "A"; // ok
+val1 = 10; // ok
+val1 = []; // error
+
+// Generic
+// CustomType 사용 방법
+const strObj: CustomType<string> = { val: "A" };
+
+// string 이외의 값을 대입한 경우
+const strObj: CustomType<string> = { val: 10 }; // error
+
+// useState 정의 시 제네릭 사용
+const [str, setStr] = useState<string>("");
+
+// 값을 string 이외의 값으로 업데이트 한 경우
+setStr(10); // error

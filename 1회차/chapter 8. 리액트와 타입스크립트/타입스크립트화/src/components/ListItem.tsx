@@ -1,11 +1,16 @@
 import type { User } from "../types/user";
+import type { FC } from "react";
 
-export const ListItem = (props: User) => {
-  const { id, name, age, personalColor } = props;
+export const ListItem: FC<User> = (props) => {
+  const { id, name, age, personalColor, hobbies } = props;
 
   return (
     <p style={{ color: personalColor }}>
-      {id} : {name}({age})
+      {id} : {name}({age}){hobbies?.join("/")}
     </p>
   );
+};
+
+ListItem.defaultProps = {
+  personalColor: "grey",
 };

@@ -1,17 +1,10 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { ListItem } from "./components/ListItem";
-
-// 사용자 정보 타입 정의
-type User = {
-  id: number;
-  name: string;
-  age: number;
-  personalColor: string;
-};
+import type { User } from "./types/User";
 
 export const App = () => {
-  // 얻은 사용자 정ㅂ도
+  // 얻은 사용자 정보
   const [users, setUsers] = useState<User[]>([]);
 
   // 화면에 표시될 때 사용자 정보 얻기
@@ -29,6 +22,7 @@ export const App = () => {
           name={user.name}
           age={user.age}
           personalColor={user.personalColor}
+          hobbies={user.hobbies}
         />
       ))}
     </div>
