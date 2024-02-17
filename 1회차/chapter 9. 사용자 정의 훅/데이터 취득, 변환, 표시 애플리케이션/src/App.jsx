@@ -4,36 +4,7 @@ import { userFetchUsers } from "./hooks/useFetchUsers";
 export const App = () => {
   // 사용자 정의 훅 사용
   // 함수를 실행하고 반환값을 분할 대입해서 전달
-  const { userList, onClickFetchUser } = userFetchUsers();
-  console.log(userList);
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  // 사용자 정보 얻기 버튼 클릭 시 액션
-  const onClickFetchUser = () => {
-    // 버튼 클릭 시 로딩 on, 에러 플래그 off
-    setIsLoading(true);
-    setIsError(false);
-  };
-
-  // API 실행
-  axios
-    .get("https://example.com/users")
-    .then((result) => {
-      // 성과 이름을 결합하도록 변환
-      const users = result.data.map((user) => ({
-        id: user.id,
-        name: `${user.lastname} ${user.firstname}`,
-        age: user.age,
-      }));
-      // 사용자 목록 State 업데이트
-      setUserList(users);
-    })
-    // 에러가 발생하면 에러 플래그 on
-    .catch(() => setIsError(true))
-    // 처리가 완료된 뒤에는 로딩 플래그 off
-    .finally(() => setIsLoading(false));
+  const { userList, isLoading, isError, onClickFetchUser } = userFetchUsers();
 
   return (
     <div>
