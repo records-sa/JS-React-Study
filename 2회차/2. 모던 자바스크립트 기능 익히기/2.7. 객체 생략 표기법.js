@@ -15,3 +15,5 @@ const user2 = {
   name,
   age,
 };
+
+console.log(user2); // { name: '누시다', age: 24 }
